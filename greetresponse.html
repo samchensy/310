@@ -1,0 +1,112 @@
+<!HTML DOCTYPE>
+<html>
+<head>
+
+</head>
+<body>
+
+<h2>{{page_title}}</h2>
+<h1>{{name}}</h1>
+<br>
+
+<table id = "table">
+	<tr><th>Date</th><th>Temperature (°F)</th><th>Snow Depth (in)</th></tr>
+	{% for eachday in dateInfo|sort %}
+	<tr> <td>{{eachday}}</td><td>{{dateInfo[eachday].temp}}</td><td>{{dateInfo[eachday].depth}}</td></tr>
+		{% endfor %}
+</table>
+
+<canvas id="myChart" height="300" width="500"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [{% for eachday in dateInfo|sort %}'{{eachday}}'{% if not loop.last %},{% endif %}{%endfor%}],
+        datasets: [{
+            label: 'snow depth',
+            data: [{% for eachday in dateInfo|sort %} '{{dateInfo[eachday].depth}}'{% if not loop.last %},{% endif %}{%endfor%}],
+            backgroundColor: [
+                'rgba(3, 63, 99, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(3, 63, 99, 0.2)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+		responsive: false,
+		scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+
+</script>
+
+<div id = "photo" >
+	{% for eachURL in imageURL %}
+	<image src ="{{eachURL}}" alt = "{{title}}" style="width:400px;height:300px" hspace="40"/>
+	{% endfor %}
+</div>
+</body>
+
+<style>
+	#myChart{
+		padding: 0;
+		margin: auto;
+    	display: block;
+    	width: 800px;
+	}
+	#photo{
+		margin: 50px;
+		text-align:center;
+		padding: 0px;
+	}
+	#table {
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	th, td {
+		text-align: left;
+		padding: 8px;
+	}
+
+	tr:nth-child(even){background-color: #f2f2f2}
+
+	th {
+		background-color: #1E88E5;
+		color: white;
+}
+h2{float:left  }
+	h1{text-align: center;
+		clear: left;
+		}
+body{
+	margin:0 auto;
+}
+</style>
+
+
+<br>
+</html>
+
+
+

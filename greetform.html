@@ -1,0 +1,92 @@
+<!HTML DOCTYPE>
+<html>
+
+<head>
+<title>{{page_title}}</title>
+</head>
+<body>
+<div class = "all">
+<h1>Ski To Check</h1>
+<h4>A tool that you can't miss before you go shredding</h4>
+<br>
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<form action="gresponse" method="post">
+<div class="container"  >
+
+	<div class="row">
+        <div class="col-md-6 col-md-offset-3">
+    		<h3>Enter any ski resort name you prefer:</h3>
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" id="tag" name="tag" placeholder="etc. Stevens Pass" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg"  type="submit" value="Go" name"gobtn"/></form>
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </>
+            </div>
+        </div>
+	</div>
+</div>
+
+
+<style>
+	#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+body{
+	background-image: url("assets/background.jpg");
+}
+.container{
+	    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+.all{
+margin: 0;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+h1 {text-align:center;}
+h4 {text-align:center;}
+
+</style>
+</body>
+</html>
